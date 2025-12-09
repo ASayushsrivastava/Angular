@@ -20,3 +20,29 @@
   </li>
   }
 </ul>
+
+<h3>Timer</h3>
+
+<input title="input" type="number" [value]="input()" (input)="updatetimer($event.target.value)" />
+
+@if(val() > 0){
+<p>remaining time : {{ val() }}</p>
+} @if(val() == 0 && isStart()){
+<h1>TIME's UP!!!</h1>
+}
+
+<button (click)="start()">start</button>
+<button (click)="stop()">stop</button>
+<button (click)="reset()">reset</button>
+
+<hr />
+
+<!-- <div style="height: 600px"></div> -->
+<h3>quotes</h3>
+
+<!-- @defer (on viewport; when loadQuote()){ -->
+@defer (on timer(5000)){
+<p>"{{ quote() }}"</p>
+}@placeholder{
+<p>Loadin...</p>
+}

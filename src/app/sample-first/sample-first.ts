@@ -57,11 +57,19 @@ export class SampleFirst {
   }
 
   // timer
-  input = signal(10);
+  isStart = signal(false);
+  input = signal(5);
   val = signal(0);
   interval: any = null;
 
+  // input method
+  updatetimer(value: string) {
+    this.input.set(Number(value));
+  }
+
+  // action
   start() {
+    this.isStart.set(true);
     this.val.set(this.input());
     this.interval = setInterval(() => {
       if (this.val() > 0) {
@@ -78,5 +86,20 @@ export class SampleFirst {
 
   reset() {
     this.val.set(0);
+  }
+
+  // quote
+  quote = signal('touch some grass!!');
+
+  async loadQuote() {
+    // const res = fetch('https://dummyjson.com/quotes/random')
+    //   .then((res) => res.json())
+    //   .then((data) => this.quote.set(data.quote));
+
+    // const res = await fetch('https://dummyjson.com/quotes/random');
+    // const data = await res.json();
+    // this.quote.set(data.quote);
+
+    this.quote.set('touch some grass!!');
   }
 }
