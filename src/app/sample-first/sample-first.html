@@ -1,0 +1,22 @@
+<!-- task dashboard -->
+
+<h2>User : {{ user() }}</h2>
+
+<input title="newTask" type="text" [value]="newTask()" (input)="update($event.target.value)" />
+
+<button (click)="add()">add</button>
+
+<ul>
+  @for(task of tasks(); track task.id){
+  <li>
+    @if(task.done){
+    <p [style.text-decoration]="task.done ? 'line-through' : 'none'">{{ task.title }}</p>
+    }@else{
+    <p>{{ task.title }}</p>
+    }
+
+    <button (click)="toggle(task.id)">mark done</button>
+    <button (click)="remove(task.id)">remove</button>
+  </li>
+  }
+</ul>

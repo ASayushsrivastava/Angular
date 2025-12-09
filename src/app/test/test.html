@@ -1,0 +1,31 @@
+<p>test works!</p>
+<div>
+  @defer(on timer(5000)) {
+  <ul>
+    @if(isConnected()){
+    <p>{{ user().name }} is Connected!!</p>
+    } @for(item of items(); track item.id){
+    <li>{{ item.title }}</li>
+    }
+  </ul>
+  } @placeholder {
+  <p>Loading...</p>
+  }
+
+  <!-- ---------------- -->
+
+  <input title="input" type="text" [(ngModel)]="user().name" placeholder="Enter your name" />
+
+  <!-- --------------- -->
+
+  <button (click)="onClick()">Click Me</button>
+  @if(clicked()){
+  <p>User Clicked the Button</p>
+  }
+  <button (click)="resetName()">reset name</button>
+  <!-- @if(isConnected){
+  <p>{{ user.name }} is Connected!!</p>
+  } @for(item of items; track item.id){
+  <li>{{ item.title }}</li>
+  } -->
+</div>
