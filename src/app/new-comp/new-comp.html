@@ -1,8 +1,12 @@
-<div style="border: 1px solid black; margin-top: 2rem; padding: 2rem">
-  <p>Using service here</p>
+<section class="card counter-card">
+  <h3 class="section-title">Counter</h3>
 
-  <button (click)="counter.increment()">clk me</button>
+  <p class="counter-value">Count: {{ counter.count() }}</p>
+  <p class="counter-value">Double: {{ counter.doubled() }}</p>
 
-  <p>Count value: {{ counter.count() }}</p>
-  <p>Doubled value: {{ counter.doubled() }}</p>
-</div>
+  <div class="button-row">
+    <button class="btn btn-primary" (click)="counter.increment()">Increment</button>
+    <button class="btn btn-warning" (click)="counter.decrement()">Decrement</button>
+    <button class="btn btn-danger" (click)="counter.reset()">Reset</button>
+  </div>
+</section>

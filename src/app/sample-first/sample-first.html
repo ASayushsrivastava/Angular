@@ -1,50 +1,93 @@
 <!-- task dashboard -->
+<div class="app-container">
+  <header class="header">
+    <h2 class="username">{{ user() }} 👋</h2>
+  </header>
 
-<h2>User : {{ user() }}</h2>
+  <section class="card task-card">
+    <h3 class="section-title">Task Manager</h3>
+    <div class="input-row">
+      <!-- <input title="newTask" type="text" [value]="newTask()" (input)="update($event.target.value)" /> -->
+      <input
+        title="newTask"
+        class="input"
+        type="text"
+        [(ngModel)]="newTask"
+        placeholder="Add a task"
+      />
+      <button class="btn btn-primary" (click)="add()">add</button>
+    </div>
 
-<!-- <input title="newTask" type="text" [value]="newTask()" (input)="update($event.target.value)" /> -->
-<input title="newTask" type="text" [(ngModel)]="newTask" placeholder="Add a task" />
+    <ul class="task-list">
+      @for(task of tasks(); track task.id){
+      <li class="task-item">
+        <p
+          class="task-title"
+          appAnimate
+          type="task"
+          [state]="task.done"
+          #anim="appAnimate"
+          [ngClass]="anim.classes"
+        >
+          {{ task.title }}
+        </p>
 
-<button (click)="add()">add</button>
+        <div class="task-button">
+          <button class="btn btn-sucess" (click)="toggle(task.id)">mark done</button>
+          <button class="btn btn-danger" (click)="remove(task.id)">remove</button>
+        </div>
+      </li>
+      }
+    </ul>
+  </section>
 
-<ul>
-  @for(task of tasks(); track task.id){
-  <li>
-    @if(task.done){
-    <p [style.text-decoration]="task.done ? 'line-through' : 'none'">{{ task.title }}</p>
-    }@else{
-    <p>{{ task.title }}</p>
+  <section class="card timer-card">
+    <h3 class="section-title">Timer</h3>
+
+    <div class="input-row">
+      <!-- <input title="input" type="number" [value]="input()" (input)="updatetimer($event.target.value)" /> -->
+      <input class="input" title="input" type="number" [(ngModel)]="input" />
+    </div>
+
+    @if(val() > 0){
+    <p
+      class="timer-display"
+      appAnimate
+      type="timer"
+      [state]="val()"
+      #anim="appAnimate"
+      [ngClass]="anim.classes"
+    >
+      remaining time : {{ val() }}
+    </p>
+    } @if(val() == 0 && isStart()){
+    <h1
+      class="timer-done"
+      appAnimate
+      type="timer"
+      [state]="val()"
+      #anim="appAnimate"
+      [ngClass]="anim.classes"
+    >
+      TIME's UP!!!
+    </h1>
     }
+    <div class="button-row">
+      <button class="btn btn-primary" (click)="start()">start</button>
+      <button class="btn btn-warning" (click)="stop()">stop</button>
+      <button class="btn btn-danger" (click)="reset()">reset</button>
+    </div>
+  </section>
 
-    <button (click)="toggle(task.id)">mark done</button>
-    <button (click)="remove(task.id)">remove</button>
-  </li>
-  }
-</ul>
+  <section class="card quote-card">
+    <!-- <div style="height: 600px"></div> -->
+    <h3 class="section-title">quotes</h3>
 
-<h3>Timer</h3>
-
-<!-- <input title="input" type="number" [value]="input()" (input)="updatetimer($event.target.value)" /> -->
-<input title="input" type="number" [(ngModel)]="input" />
-
-@if(val() > 0){
-<p>remaining time : {{ val() }}</p>
-} @if(val() == 0 && isStart()){
-<h1>TIME's UP!!!</h1>
-}
-
-<button (click)="start()">start</button>
-<button (click)="stop()">stop</button>
-<button (click)="reset()">reset</button>
-
-<hr />
-
-<!-- <div style="height: 600px"></div> -->
-<h3>quotes</h3>
-
-<!-- @defer (on viewport; when loadQuote()){ -->
-@defer (on timer(5000)){
-<p>"{{ quote() }}"</p>
-}@placeholder{
-<p>Loadin...</p>
-}
+    <!-- @defer (on viewport; when loadQuote()){ -->
+    @defer (on timer(5000)){
+    <p class="quote-text">"{{ quote() }}"</p>
+    }@placeholder{
+    <p class="quote-loading">Loadin...</p>
+    }
+  </section>
+</div>

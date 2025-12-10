@@ -1,0 +1,229 @@
+/* GLOBAL RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #eef2f3, #dfe9f3);
+  padding: 20px;
+}
+
+/* LAYOUT */
+.app-container {
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  padding: 20px;
+}
+.username {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* CARD */
+.card {
+  background: rgba(255, 255, 255, 0.75);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(6px);
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.section-title {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #444;
+}
+
+/* INPUT */
+.input-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: 0.2s;
+}
+.input:focus {
+  border-color: #4b9ce2;
+  box-shadow: 0 0 8px rgba(75, 156, 226, 0.4);
+}
+
+/* BUTTONS */
+.btn {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.25s;
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: #4b9ce2;
+  color: white;
+}
+.btn-success {
+  background: #57b45b;
+  color: white;
+}
+.btn-danger {
+  background: #e24b4b;
+  color: white;
+}
+.btn-warning {
+  background: #e2a84b;
+  color: white;
+}
+
+.button-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+/* TASK LIST */
+.task-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.task-item {
+  background: white;
+  padding: 12px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.task-title {
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+/* QUOTE */
+.quote-card {
+  text-align: center;
+}
+.quote-text {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #444;
+}
+.quote-loading {
+  color: #777;
+  font-style: italic;
+}
+
+/* TIMER */
+.timer-display {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+.timer-done {
+  font-size: 2rem;
+  color: #d83a3a;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* ANIMATIONS (You already have these — keeping them) */
+.fade-in {
+  animation: fadeIn 0.4s ease;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.task-hover:hover {
+  background: #f8f8f8;
+}
+
+.task-done {
+  text-decoration: line-through;
+  color: #999 !important;
+}
+
+.task-grow {
+  animation: grow 0.2s ease;
+}
+
+@keyframes grow {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.04);
+  }
+}
+
+.timer-glow {
+  box-shadow: 0 0 20px rgba(0, 140, 255, 0.5);
+  border-radius: 12px;
+  padding: 10px;
+  background: rgba(230, 247, 255, 0.6);
+}
+
+.timer-blink {
+  animation: blink 1s infinite alternate;
+}
+@keyframes blink {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.3;
+  }
+}
+
+.timer-bounce {
+  animation: bounce 0.5s ease;
+}
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

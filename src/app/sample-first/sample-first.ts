@@ -1,5 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CounterDirective } from '../counter-directive';
+import { NgClass } from '@angular/common';
 
 interface Task {
   id: number;
@@ -10,7 +12,7 @@ interface Task {
 @Component({
   selector: 'app-sample-first',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CounterDirective, NgClass],
   templateUrl: './sample-first.html',
   styleUrl: './sample-first.css',
 })
