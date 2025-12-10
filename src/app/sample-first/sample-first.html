@@ -2,7 +2,8 @@
 
 <h2>User : {{ user() }}</h2>
 
-<input title="newTask" type="text" [value]="newTask()" (input)="update($event.target.value)" />
+<!-- <input title="newTask" type="text" [value]="newTask()" (input)="update($event.target.value)" /> -->
+<input title="newTask" type="text" [(ngModel)]="newTask" placeholder="Add a task" />
 
 <button (click)="add()">add</button>
 
@@ -23,7 +24,8 @@
 
 <h3>Timer</h3>
 
-<input title="input" type="number" [value]="input()" (input)="updatetimer($event.target.value)" />
+<!-- <input title="input" type="number" [value]="input()" (input)="updatetimer($event.target.value)" /> -->
+<input title="input" type="number" [(ngModel)]="input" />
 
 @if(val() > 0){
 <p>remaining time : {{ val() }}</p>

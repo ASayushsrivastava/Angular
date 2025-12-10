@@ -1,1 +1,8 @@
-<p>new-comp works!</p>
+<div style="border: 1px solid black; margin-top: 2rem; padding: 2rem">
+  <p>Using service here</p>
+
+  <button (click)="counter.increment()">clk me</button>
+
+  <p>Count value: {{ counter.count() }}</p>
+  <p>Doubled value: {{ counter.doubled() }}</p>
+</div>

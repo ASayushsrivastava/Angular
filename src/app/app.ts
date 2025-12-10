@@ -7,7 +7,7 @@ import { SampleFirst } from './sample-first/sample-first';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, /*NewComp, Test,*/ SampleFirst],
+  imports: [RouterOutlet, NewComp, /*Test,*/ SampleFirst],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

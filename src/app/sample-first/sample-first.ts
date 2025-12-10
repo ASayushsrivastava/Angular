@@ -1,4 +1,5 @@
 import { Component, signal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 interface Task {
   id: number;
@@ -9,7 +10,7 @@ interface Task {
 @Component({
   selector: 'app-sample-first',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './sample-first.html',
   styleUrl: './sample-first.css',
 })
@@ -18,18 +19,7 @@ export class SampleFirst {
   newTask = signal('');
 
   // tasks
-  tasks = signal<Task[]>([
-    {
-      id: 1,
-      title: 'do angular',
-      done: false,
-    },
-    {
-      id: 2,
-      title: 'do react',
-      done: false,
-    },
-  ]);
+  tasks = signal<Task[]>([]);
 
   // input method
   update(val: string) {
@@ -86,12 +76,13 @@ export class SampleFirst {
 
   reset() {
     this.val.set(0);
+    this.isStart.set(false);
   }
 
   // quote
   quote = signal('touch some grass!!');
 
-  async loadQuote() {
+  loadQuote() {
     // const res = fetch('https://dummyjson.com/quotes/random')
     //   .then((res) => res.json())
     //   .then((data) => this.quote.set(data.quote));
