@@ -2,6 +2,7 @@ import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CounterDirective } from '../counter-directive';
 import { NgClass } from '@angular/common';
+import { SampleFirstService } from '../sample-first';
 
 interface Task {
   id: number;
@@ -17,6 +18,7 @@ interface Task {
   styleUrl: './sample-first.css',
 })
 export class SampleFirst {
+  /*
   user = signal('ayush');
   newTask = signal('');
 
@@ -94,5 +96,62 @@ export class SampleFirst {
     // this.quote.set(data.quote);
 
     this.quote.set('touch some grass!!');
+  }
+    */
+
+  constructor(public svc: SampleFirstService) {}
+
+  get user() {
+    return this.svc.user;
+  }
+
+  get newTask() {
+    return this.svc.newTask;
+  }
+
+  get tasks() {
+    return this.svc.tasks;
+  }
+
+  get isStart() {
+    return this.svc.isStart;
+  }
+
+  get input() {
+    return this.svc.input;
+  }
+
+  get val() {
+    return this.svc.val;
+  }
+
+  get quote() {
+    return this.svc.quote;
+  }
+
+  update(v: string) {
+    this.svc.update(v);
+  }
+  add() {
+    this.svc.add();
+  }
+  remove(id: number) {
+    this.svc.remove(id);
+  }
+  toggle(id: number) {
+    this.svc.toggle(id);
+  }
+
+  updatetimer(v: string) {
+    this.svc.updatetimer(v);
+  }
+  start() {
+    this.svc.start();
+  }
+  stop() {
+    this.svc.stop();
+  }
+  reset() {
+    this.svc.reset();
   }
 }
