@@ -1,3 +1,18 @@
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+  {
+    path: 'service-example',
+    loadComponent: () => import('./Components/new-comp/new-comp').then((m) => m.NewComp),
+  },
+  {
+    path: 'sample-service',
+    loadComponent: () =>
+      import('./Components/sample-first/sample-first').then((m) => m.SampleFirst),
+  },
+  {
+    path: '',
+    redirectTo: '',
+    pathMatch: 'full',
+  },
+];

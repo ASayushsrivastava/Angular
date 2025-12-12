@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { CounterService } from '../counter-service';
+import { CounterService } from '../../Services/counter-service';
 
 @Component({
   selector: 'app-new-comp',

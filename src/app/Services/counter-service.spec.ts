@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { CounterService } from './counter-service';
 
 describe('CounterService', () => {

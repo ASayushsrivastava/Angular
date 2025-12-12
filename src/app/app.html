@@ -7,18 +7,25 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
+<nav class="navbar">
+  <div class="nav-container">
+    <ul class="nav-link">
+      <li><a routerLink="/service-example" routerLinkActive="active">Double-Count</a></li>
+      <li><a routerLink="/sample-service" routerLinkActive="active">Task Master</a></li>
+    </ul>
+  </div>
+</nav>
+
 <main class="main">
   <div class="content">
     <div class="left-side">
       <h1 style="margin: 2rem">Hello, {{ title() }}</h1>
-      <app-new-comp></app-new-comp>
-      <!-- <p>Congratulations! Your app is running. 🎉</p>
-      
-      <app-test></app-test> -->
 
-      <!-- sample component  -->
-
-      <app-sample-first></app-sample-first>
+      <!--  -->
+      <!-- <p>Congratulations! Your app is running. 🎉</p> -->
+      <!-- <app-test></app-test>  -->
+      <!-- <app-new-comp></app-new-comp> -->
+      <!-- <app-sample-first></app-sample-first> -->
     </div>
   </div>
 </main>
@@ -31,4 +38,4 @@
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<router-outlet />
+<!-- <router-outlet /> -->

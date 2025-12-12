@@ -1,8 +1,8 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CounterDirective } from '../counter-directive';
 import { NgClass } from '@angular/common';
-import { SampleFirstService } from '../sample-first';
+import { SampleFirstService } from '../../Services/sample-first';
+import { CounterDirective } from '../../Directives/counter-directive';
 
 interface Task {
   id: number;
@@ -99,59 +99,27 @@ export class SampleFirst {
   }
     */
 
-  constructor(public svc: SampleFirstService) {}
+  // constructor(public svc: SampleFirstService) {}
 
-  get user() {
-    return this.svc.user;
-  }
+  private Service = inject(SampleFirstService);
 
-  get newTask() {
-    return this.svc.newTask;
-  }
+  user = this.Service.user;
+  newTask = this.Service.newTask;
+  tasks = this.Service.tasks;
 
-  get tasks() {
-    return this.svc.tasks;
-  }
+  add = () => this.Service.add();
+  remove = (id: number) => this.Service.remove(id);
+  update = (v: string) => this.Service.update(v);
+  toggle = (id: number) => this.Service.toggle(id);
 
-  get isStart() {
-    return this.svc.isStart;
-  }
+  isStart = this.Service.isStart;
+  input = this.Service.input;
+  val = this.Service.val;
 
-  get input() {
-    return this.svc.input;
-  }
+  updatetimer = (v: string) => this.Service.updatetimer(v);
+  start = () => this.Service.start();
+  stop = () => this.Service.stop();
+  reset = () => this.Service.reset();
 
-  get val() {
-    return this.svc.val;
-  }
-
-  get quote() {
-    return this.svc.quote;
-  }
-
-  update(v: string) {
-    this.svc.update(v);
-  }
-  add() {
-    this.svc.add();
-  }
-  remove(id: number) {
-    this.svc.remove(id);
-  }
-  toggle(id: number) {
-    this.svc.toggle(id);
-  }
-
-  updatetimer(v: string) {
-    this.svc.updatetimer(v);
-  }
-  start() {
-    this.svc.start();
-  }
-  stop() {
-    this.svc.stop();
-  }
-  reset() {
-    this.svc.reset();
-  }
+  quote = this.Service.quote;
 }
