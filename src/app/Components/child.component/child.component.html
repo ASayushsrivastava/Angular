@@ -1,0 +1,18 @@
+<div class="card">
+  <h3>@if (user) { Edit User } @else { Add User }</h3>
+
+  @if (user) {
+  <input type="text" [value]="id" readonly />
+  }
+
+  <input type="text" placeholder="Name" [(ngModel)]="name" />
+
+  <input type="email" placeholder="Email" [(ngModel)]="email" />
+
+  <select title="role" [(ngModel)]="role">
+    <option value="Admin">Admin</option>
+    <option value="User">User</option>
+  </select>
+
+  <button (click)="submit()">@if (user) { Update User } @else { Add User }</button>
+</div>
