@@ -3,6 +3,7 @@
     [user]="selectedUser()"
     (addUser)="addUser($event)"
     (updateUser)="updateUser($event)"
+    (delete)="deleteUser($event)"
   ></app-child>
 
   <table class="user-table">
@@ -18,13 +19,14 @@
 
     <tbody>
       @for (user of users(); track user.id) {
-      <tr>
+      <tr [class.admin]="user.role === 'Admin'" [class.user]="user.role === 'User'">
         <td>{{ user.id }}</td>
         <td>{{ user.name }}</td>
         <td>{{ user.email }}</td>
         <td>{{ user.role }}</td>
         <td>
           <button (click)="editUser(user)">Edit</button>
+          <button class="delete" (click)="deleteUser(user)">Delete</button>
         </td>
       </tr>
       } @empty {

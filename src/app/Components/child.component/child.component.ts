@@ -14,6 +14,7 @@ export class ChildComponent {
 
   @Output() addUser = new EventEmitter<User>();
   @Output() updateUser = new EventEmitter<User>();
+  @Output() delete = new EventEmitter<User>();
 
   id!: number;
   name = '';
@@ -22,13 +23,11 @@ export class ChildComponent {
 
   ngOnChanges() {
     if (this.user) {
-      // Edit Mode
       this.id = this.user.id;
       this.name = this.user.name;
       this.email = this.user.email;
       this.role = this.user.role;
     } else {
-      // Add Mode
       this.resetForm();
     }
   }

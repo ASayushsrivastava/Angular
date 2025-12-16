@@ -11,6 +11,11 @@ export const routes: Routes = [
       import('./Components/sample-first/sample-first').then((m) => m.SampleFirst),
   },
   {
+    path: 'parent-child',
+    loadComponent: () =>
+      import('./Components/parent.component/parent.component').then((m) => m.ParentComponent),
+  },
+  {
     path: '',
     redirectTo: '',
     pathMatch: 'full',

@@ -10,8 +10,7 @@ import { ParentComponent } from './Components/parent.component/parent.component'
   standalone: true,
   imports: [
     RouterOutlet,
-    ParentComponent /*NewComp, Test, SampleFirst*/,
-    RouterLink,
+    /*ParentComponent NewComp, Test, SampleFirst*/ RouterLink,
     RouterLinkActive,
   ],
   templateUrl: './app.html',

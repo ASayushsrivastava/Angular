@@ -1,8 +1,11 @@
 <nav class="navbar">
   <div class="nav-container">
     <ul class="nav-link">
-      <li><a routerLink="/service-example" routerLinkActive="active">Double-Count</a></li>
+      <li><a routerLink="/service-example" routerLinkActive="active">Double Counter</a></li>
       <li><a routerLink="/sample-service" routerLinkActive="active">Task Master</a></li>
+      <li>
+        <a routerLink="/parent-child" routerLinkActive="active">Parent Child Comminication</a>
+      </li>
     </ul>
   </div>
 </nav>
@@ -10,7 +13,6 @@
 <main class="main">
   <div class="content">
     <h1>Hello, {{ title() }}</h1>
-    <app-parent></app-parent>
     <router-outlet />
     <!-- <div class="left-side"> -->
     <!--  -->

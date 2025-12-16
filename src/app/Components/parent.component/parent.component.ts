@@ -23,6 +23,15 @@ export class ParentComponent {
     this.selectedUser.set(user);
   }
 
+  deleteUser(user: User) {
+    if (!confirm(`Delete ${user.name}?`)) return;
+
+    this.users.update((u) => u.filter((u) => u.id !== user.id));
+    if (this.selectedUser()?.id === user.id) {
+      this.selectedUser.set(null);
+    }
+  }
+
   updateUser(updatedUser: User) {
     this.users.update((users) =>
       users.map((user) => (user.id === updatedUser.id ? updatedUser : user))
